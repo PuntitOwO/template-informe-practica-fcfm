@@ -1,0 +1,41 @@
+CorlessJK97:
+  type: Article
+  title: A Sequence of Series for the Lambert W Function
+  author:
+    - Robert M. Corless
+    - David J. Jeffrey
+    - Donald E. Knuth
+  doi: "10.1145/258726.258783"
+  page-range: 197-204
+  parent:
+    type: Proceedings
+    title: International Symposium on Symbolic and Algebraic Computation
+    location: Kihei, Maui, Hawaii, USA.
+    year: 1997
+    isbn: 978-0-89791-875-6
+
+NewmanT42:
+  type: Article
+  title: A Formal Theorem in Church's Theory of Types
+  doi: "10.2307/2267552"
+  author:
+    - M. H. A. Newman
+    - Alan M. Turing
+  page-range: 28-33
+  parent:
+    type: Periodical
+    title: The Journal of Symbolic Logic
+    volume: 7
+    number: 1
+    year: 1942
+    publisher: Association for Symbolic Logic
+    url: http://www.jstor.org/stable/2267552
+
+Turing38:
+  type: Article
+  title: Systems of Logic Based on Ordinals
+  author: Alan M. Turing
+  year: 1938
+  organization: Princeton University
+  location: NJ, USA
+  doi: "10.1112/plms/s2-45.1.161"
