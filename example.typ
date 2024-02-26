@@ -22,8 +22,8 @@ Los parámetros que acepta la función `conf` son:
 - correo: Correo de autor.
 - telefono: Número de teléfono del autor.
 - periodo: Período en que se realizó la práctica. Por ejemplo: 'Diciembre 2022 - Enero 2023'.
-- Empresa: Nombre de la empresa.
-- supervisor: Información del supervisor en caso de práctica extendida. Es un diccionario con campos `nombre` y `pronombre`.
+- empresa: Nombre de la empresa.
+- supervisor: Información del supervisor. Es un diccionario con campos `nombre` y `pronombre`.
 - correo-supervisor: Correo de supervisor.
 - telefono-supervisor: Número de teléfono del supervisor.
 - fecha: Fecha de entrega. Si no se especifica, se usa la fecha actual.
