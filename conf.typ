@@ -137,11 +137,14 @@
     let page-num-indent = 1.2em
     show selector(outline.entry): it => {
       let num = it.body.children.first()
+      let title = link(it.element.location())[#for i in it.body.children.slice(1) {i}]
       box(width: numbering-indent, num)
-      link(it.element.location())[#for i in it.body.children.slice(1) {i}]
+      title
       box(width: 1fr, repeat[.])
       box(width: page-num-indent, align(right, it.page))
     }
+    
+    show selector(outline.entry.where(level: 1)): strong // Negrita para los títulos de nivel 1
       
     [ \ ]
     outline(
