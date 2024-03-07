@@ -27,7 +27,7 @@ La función `conf` recibe los siguientes parámetros:
 
 | Parámetro             | Descripción                                                                                                                                     |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `título`              | El título de la práctica                                                                                                                        |
+| `titulo`              | El título de la práctica                                                                                                                        |
 | `autor`               | Diccionario* con Nombre completo de estudiante y pronombre                                                                                      |
 | `practica`            | 1 o 2 dependiendo de si es la primera o segunda práctica.                                                                                       |
 | `codigo`              | Colocar el código del ramo de práctica. (CC4901 para práctica I, CC5901 para práctica II.)                                                      |
