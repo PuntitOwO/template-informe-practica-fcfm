@@ -64,6 +64,10 @@ Esta opción no se recomienda del todo, ya que no siempre estará actualizada co
 
 ## Changelog
 
+### v1.0.1
+
+* Se añade el texto en negrita a las entradas principales de la tabla de contenido.
+
 ### v1.0.0
 
 * Primera versión
