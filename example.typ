@@ -1,10 +1,10 @@
 #import "conf.typ": conf, guia, pronombre
 #let mostrar_guias = true
 #show: conf.with(
-    titulo: "El Título de mi práctica",
-    autor: (nombre: "María Echón", pronombre: pronombre.elle),
-    supervisor: (nombre: "María Gómez", pronombre: pronombre.ella),
-    espaciado_titulo: 2fr,
+  titulo: "El Título de mi práctica",
+  autor: (nombre: "María Echón", pronombre: pronombre.elle),
+  supervisor: (nombre: "María Gómez", pronombre: pronombre.ella),
+  espaciado_titulo: 2fr,
 )
 
 #guia(visible: mostrar_guias)[Se debe quitar todas las guías (estas cajas grises) antes de entregar el documento.
@@ -87,11 +87,11 @@ El objetivo debería ser específico, medible, alcanzable, relevante al problema
 
 #guia(visible: mostrar_guias)[
 Una _lista_ de los hitos principales que se quieren lograr para (intentar) cumplir con el objetivo general. Divide el objetivo general en varios hitos que formarán las etapas del trabajo.
-		
+
 Cada objetivo debería ser específico, medible, alcanzable, relevante al problema, y acotado en tiempo.
-		
-No se debería escribir más de un párrafo por hito. 
-		
+
+No se debería escribir más de un párrafo por hito.
+
 Los objetivos específicos deberían \"sumar\" al objetivo general.]
 
 + ...
@@ -117,7 +117,7 @@ Describir la metodología:
 - Indicar qué tecnologías se utilizaron y justificar su elección.
 - Describir los resultados intermedios y finales obtenidos.
 - Indicar las fortalezas y debilidades de la solución.
-    
+
 (extensión sugerida: 3 a 5 páginas)]
 
 = Reflexión
@@ -131,16 +131,11 @@ Describir la metodología:
 - Dar argumentos acerca de qué habilidades o conocimientos le faltaron para desempeñarse de manera adecuada en la práctica. Asimismo, explicar qué aspectos del ambiente laboral ayudaron (favorecieron) para compensar las debilidades que como practicante traía.
 - Describir los nuevos conocimientos adquiridos en la práctica profesional.
 
-*_Se solicita que este apartado pueda señalar su autopercepción del desempeño
-y las habilidades profesionales que implemento, tales como la ética, la
-comunicación oral y escrita, trabajo en equipo, entre otras. Respondiendo
-preguntas tales como_*: ¿qué aspecto de tu actuar en relación con el respeto y
-la responsabilidad, durante la experiencia de práctica destacarías? ¿En qué
-sentido su compromiso ético se vio fortalecido a partir de la experiencia de la
-práctica? ¿Cuáles son los principales desafíos que te planteas para el futuro
-en relación con lo técnico y personal?
+*_Se solicita que este apartado pueda señalar su autopercepción del desempeño y las habilidades profesionales que implemento, tales como la ética, la comunicación oral y escrita, trabajo en equipo, entre otras. Respondiendo preguntas tales como_*:
+¿qué aspecto de tu actuar en relación con el respeto y la responsabilidad, durante la experiencia de práctica destacarías?
+¿En qué sentido su compromiso ético se vio fortalecido a partir de la experiencia de la práctica?
+¿Cuáles son los principales desafíos que te planteas para el futuro en relación con lo técnico y personal?
 
-    
 (extensión sugerida: 1 a 3 páginas)]
 
 = Conclusiones
