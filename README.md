@@ -64,6 +64,10 @@ Esta opción no se recomienda del todo, ya que no siempre estará actualizada co
 
 ## Changelog
 
+### v1.1.0
+
+* Se actualizan los márgenes de página y la enumeración de páginas antes del inicio del contenido.
+
 ### v1.0.1
 
 * Se añade el texto en negrita a las entradas principales de la tabla de contenido.

@@ -120,10 +120,10 @@
   ]
   // Portada
   portada
-  // Comienza el documento, en página 1
+  // Comienza el pre-documento, en página i
   set page(
-    numbering: "1",
-    margin: (left: 3cm, top: 3cm, rest: 2cm),
+    numbering: "i",
+    margin: (top: 3cm, rest: 2.5cm),
   ) // Activar numeración de páginas y márgenes
   set par(
     justify: true,
@@ -156,5 +156,8 @@
     it
     par(text(size:0.35em, h(0.0em)))
   } // Workaround para que se aplique la indentación al primer párrafo luego de un heading
+  set page(numbering: "1", margin: (top: 3cm, bottom: 2cm, rest: 2.5cm))
+  pagebreak(weak: true) // Salto de página
+  counter(page).update(1) // Reestablecer el contador de páginas
   doc
 }
