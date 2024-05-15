@@ -64,6 +64,11 @@ Esta opción no se recomienda del todo, ya que no siempre estará actualizada co
 
 ## Changelog
 
+### v1.1.1
+
+* Se ajusta el estilo de citas a `"council-of-science-editors"`, esto deja las citas contiguas como `[1, 2]` o `[1-3]`
+* Se arregla error en la tabla de contenido cuando se añade bibliografía. [(Issue #2)](https://github.com/PuntitOwO/template-informe-practica-fcfm/issues/2)
+
 ### v1.1.0
 
 * Se actualizan los márgenes de página y la enumeración de páginas antes del inicio del contenido.

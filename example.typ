@@ -154,3 +154,7 @@ En esta sección se puede incluir material de adicional de apoyo al informe, por
 ejemplo, capturas de pantalla, código fuente, o la descripción de casos de uso.
 Este acápite es optativo.
 ]
+
+@CorlessJK97 @NewmanT42
+
+#bibliography("bibliografia.yml", title: "Referencias")
