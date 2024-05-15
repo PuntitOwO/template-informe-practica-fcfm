@@ -72,27 +72,30 @@
   // Formato de headings
   set heading(numbering: "1.")
 
-  // Workaround para traducir meses
-  show "January": "Enero"
-  show "February": "Febrero"
-  show "March": "Marzo"
-  show "April": "Abril"
-  show "May": "Mayo"
-  show "June": "Junio"
-  show "July": "Julio"
-  show "August": "Agosto"
-  show "September": "Septiembre"
-  show "October": "Octubre"
-  show "November": "Noviembre"
-  show "December": "Diciembre"
     
   let _informe = [#set text(weight: "bold", size: 24pt)
   Informe de Práctica Profesional #numbering("I", practica)]
   let _ingenieria = text(size: 16pt, ingenieria)
   let _supervisor(gen: pronombre.el) = [Supervisor#gen.guia]
-  let _fecha = if fecha != none [#fecha] else [#datetime.today().display("[day] de [month repr:long] de [year]")]
+  let _fecha = if fecha != none [#fecha] else [
+    // Workaround para traducir meses
+    #show "January": "Enero"
+    #show "February": "Febrero"
+    #show "March": "Marzo"
+    #show "April": "Abril"
+    #show "May": "Mayo"
+    #show "June": "Junio"
+    #show "July": "Julio"
+    #show "August": "Agosto"
+    #show "September": "Septiembre"
+    #show "October": "Octubre"
+    #show "November": "Noviembre"
+    #show "December": "Diciembre"
+    #datetime.today().display("[day] de [month repr:long] de [year]")
+    ]
     
   let portada = align(center)[
+
     #stack(dir: ttb, spacing: 1fr,
       espaciado_titulo,
       _informe,

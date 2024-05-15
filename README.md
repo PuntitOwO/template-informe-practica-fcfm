@@ -68,6 +68,7 @@ Esta opción no se recomienda del todo, ya que no siempre estará actualizada co
 
 * Se ajusta el estilo de citas a `"council-of-science-editors"`, esto deja las citas contiguas como `[1, 2]` o `[1-3]`
 * Se arregla error en la tabla de contenido cuando se añade bibliografía. [(Issue #2)](https://github.com/PuntitOwO/template-informe-practica-fcfm/issues/2)
+* Se encapsula *workaround* de fecha para evitar estropear nombres como "Augusto". [(Issue #3)](https://github.com/PuntitOwO/template-informe-practica-fcfm/issues/3)
 
 ### v1.1.0
 
