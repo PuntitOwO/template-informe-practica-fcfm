@@ -1,38 +1,7 @@
-#let logos = (
-  escudo: "imagenes/institucion/escudoU2014.svg",
-  fcfm: "imagenes/institucion/fcfm.svg",
-  dcc: "imagenes/institucion/dcc.svg",
-)
+#import "constants.typ": *
 
-#let pronombre = (
-  el:   (titulo: "O", guia: ""),
-  ella: (titulo: "A", guia: "a"),
-  elle: (titulo: "E", guia: "e"),
-)
-
-#let guia(visible: true, body) = if visible [
-  #set rect(width: 100%, stroke: black)
-  #set par(justify: true, first-line-indent: 0pt)
-  #block(breakable: false)[#stack(dir: ttb,
-    rect(fill: black, radius: (top: 5pt, bottom: 0pt), text(fill: white, "Guía (deshabilitar antes de entregar)")),
-    rect(fill: luma(230), radius: (top: 0pt, bottom: 5pt), body)
-  )]] else []
-    
 #let conf(
-  titulo: none, // Título de la práctica
-  autor: none, // diccionario con nombre y pronombre, (nombre: "", pronombre: pronombre.<el/ella/elle>) 
-  practica: 1, // puede ser práctica 1 o 2
-  codigo: "CC4901", // CC4901 para práctica I, CC5901 para práctica II
-  ingenieria: "Ingeniería civil en Computación", // Nombre de la carrera
-  correo: "example@example.com", // Correo de autor
-  telefono: "+56 9 8765 4321", // Número de teléfono de autor
-  periodo: "Enero - Febrero 2024", // Periodo en que se realizó la práctica
-  empresa: "Empre S.A.", // Nombre de la empresa
-  supervisor: none, // (nombre: "nombre apellido", pronombre: pronombre.<el/ella/elle>)
-  correo-supervisor: "example@example.com", // Correo de supervisor
-  telefono-supervisor: "+56 9 8765 4321", // Número de teléfono de supervisor
-  fecha: none, // si no se especifica, se usa la fecha de hoy
-  espaciado_titulo: 1fr, // espacio extra que rodea al título y al nombre en la portada, 1fr es lo mismo que el resto de espacios, 2fr es el doble, etc.
+  metadata: (:), // metadata del documento
   doc,
 ) = {
   let header = [
@@ -74,10 +43,10 @@
 
     
   let _informe = [#set text(weight: "bold", size: 24pt)
-  Informe de Práctica Profesional #numbering("I", practica)]
-  let _ingenieria = text(size: 16pt, ingenieria)
+  Informe de Práctica Profesional #numbering("I", metadata.practica.numero)]
+  let _ingenieria = text(size: 16pt, metadata.practica.carrera)
   let _supervisor(gen: pronombre.el) = [Supervisor#gen.guia]
-  let _fecha = if fecha != none [#fecha] else [
+  let _fecha = if metadata.fecha != none [#fecha] else [
     // Workaround para traducir meses
     #show "January": "Enero"
     #show "February": "Febrero"
@@ -92,31 +61,29 @@
     #show "November": "Noviembre"
     #show "December": "Diciembre"
     #datetime.today().display("[day] de [month repr:long] de [year]")
-    ]
+  ]
     
   let portada = align(center)[
-
     #stack(dir: ttb, spacing: 1fr,
-      espaciado_titulo,
+      metadata.espaciado-titulo,
       _informe,
       0.2fr,
-      text(size: 20pt, titulo),
-      espaciado_titulo,
-      text(size: 24pt, smallcaps(autor.nombre)),
+      text(size: 20pt, metadata.titulo),
+      metadata.espaciado-titulo,
+      text(size: 24pt, smallcaps(metadata.autoria.nombre)),
       0.2fr,
       _ingenieria,
-      espaciado_titulo,
-
+      metadata.espaciado-titulo,
       [
         #set terms(separator: ": ")
-        / Correo: #correo
-        / Teléfono: #telefono
-        / Empresa: #empresa
-        / Periodo de realización: #periodo \ \
-        / #_supervisor(gen: supervisor.pronombre): #supervisor.nombre 
-        / Correo: #correo-supervisor 
-        / Teléfono: #telefono-supervisor \ \
-        #codigo Práctica Profesional #numbering("I", practica) \
+        / Correo: #metadata.autoria.correo
+        / Teléfono: #metadata.autoria.telefono
+        / Empresa: #metadata.practica.empresa
+        / Periodo de realización: #metadata.practica.periodo \ \
+        / #_supervisor(gen: metadata.supervision.pronombre): #metadata.supervision.nombre 
+        / Correo: #metadata.supervision.correo 
+        / Teléfono: #metadata.supervision.telefono \ \
+        #metadata.practica.codigo Práctica Profesional #numbering("I", metadata.practica.numero) \
         / Fecha de entrega: #_fecha
       ],
     )
@@ -131,8 +98,8 @@
   set par(
     justify: true,
     first-line-indent: 15pt,
+    spacing: 2em, // Espacio entre párrafos
   ) // Formato de párrafos
-  show par: set block(spacing: 2em) // Espacio entre párrafos
   set cite(style: "council-of-science-editors") // esto deja las citas contiguas como [1, 2] o [1-3]
   pagebreak(weak: true) // Salto de página
   counter(page).update(1) // Reestablecer el contador de páginas
@@ -140,29 +107,17 @@
   let numbering-indent = 2em
   let page-num-indent = 1.2em
   show bibliography: set heading(numbering: "1.")
-  show selector(outline.entry): it => {
-    let num = if it.body.has("children") [#it.body.children.first()] else []
-    box(width: numbering-indent, num)
-    if it.body.has("children") [
-      #link(it.element.location())[#for i in it.body.children.slice(1) {i}]
-    ] else [#link(it.element.location())[ #it.element.body]]
-    box(width: 1fr, repeat[.])
-    box(width: page-num-indent, align(right, it.page))
-  }
-  
-  show selector(outline.entry.where(level: 1)): strong // Negrita para los títulos de nivel 1
+  set outline.entry(fill: none)
+  show outline.entry.where(level: 1): it => box(height: 20pt, align(bottom, strong(it)))
+  show outline.entry.where(level: 2): it => box(height: 10pt, h(15pt) + it)
     
   [ \ ]
-  outline(
-    depth: 2,
-    indent: none,
-  )
+  outline(depth: 2)
 
-  show heading: it => {
-    it
-    par(text(size:0.35em, h(0.0em)))
-  } // Workaround para que se aplique la indentación al primer párrafo luego de un heading
-  set page(numbering: "1", margin: (top: 3cm, bottom: 2cm, rest: 2.5cm))
+  set page(
+    numbering: "1",
+    margin: (top: 3cm, bottom: 2cm, rest: 2.5cm)
+  )
   pagebreak(weak: true) // Salto de página
   counter(page).update(1) // Reestablecer el contador de páginas
   doc
